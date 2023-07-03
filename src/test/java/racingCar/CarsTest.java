@@ -23,7 +23,7 @@ public class CarsTest {
         List<Car> collect = stream.map((s) -> new Car(s)).collect(Collectors.toList());
 
         // when & then
-        assertThatThrownBy((()-> new Cars(collect))).isInstanceOf(CarsNameDuplicateException.class);
+        assertThatThrownBy((() -> new Cars(collect))).isInstanceOf(CarsNameDuplicateException.class);
     }
 
     @Test
