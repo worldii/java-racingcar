@@ -4,8 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import racingCar.domain.TryCount;
 import racingCar.exception.NegativeFormatError;
-import racingCar.exception.TryCountNegativeFormatError;
 import racingCar.exception.TryCountNumberFormatError;
+import racingCar.exception.TryCountZeroException;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
@@ -27,4 +27,11 @@ public class TryCountTest {
         assertThatThrownBy(() -> new TryCount(num)).isInstanceOf(NegativeFormatError.class);
     }
 
+    @Test
+    @DisplayName("시도 횟수는 0이면 안된다.")
+    void 시도_횟수가_0() {
+        // given
+        String num = "0";
+        assertThatThrownBy(() -> new TryCount(num)).isInstanceOf(TryCountZeroException.class);
+    }
 }
