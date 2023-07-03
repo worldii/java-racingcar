@@ -25,7 +25,10 @@ public class Cars {
     private void validateDuplicateName(List<Car> cars) {
         long uniqueCarCount = cars.stream().map(Car::getCarName).distinct().count();
         long notUniqueCarCount = cars.stream().map(Car::getCarName).count();
-        if (uniqueCarCount!= notUniqueCarCount) throw new CarsNameDuplicateException();
+        if (uniqueCarCount != notUniqueCarCount) throw new CarsNameDuplicateException();
     }
 
+    public void move(int i) {
+        cars.forEach(s -> move((int) Math.random() * 10));
+    }
 }
