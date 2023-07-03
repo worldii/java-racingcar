@@ -1,4 +1,4 @@
-package Car;
+package racingCar.exception;
 
 public class CarNameException extends RuntimeException {
     public CarNameException() {
